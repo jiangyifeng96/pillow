@@ -1,0 +1,43 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "pillow",
+  "description": "A lightweight personal skill collection for coding agents: think, design, hunt, check.",
+  "owner": {
+    "name": "jiangyifeng96"
+  },
+  "plugins": [
+    {
+      "name": "think",
+      "description": "Use before building a new feature, making a structural refactor, or choosing between implementation approaches. Produces a concise implementation direction and waits for approval before code. Not for bug fixes or trivial edits.",
+      "version": "0.1.0",
+      "category": "development",
+      "source": "./skills/think",
+      "homepage": "https://github.com/jiangyifeng96/pillow"
+    },
+    {
+      "name": "design",
+      "description": "Use when building a UI page, component, or visual flow. Defines a clear visual direction, interaction states, and responsive guardrails before implementation. Not for backend logic or pure data work.",
+      "version": "0.1.0",
+      "category": "development",
+      "source": "./skills/design",
+      "homepage": "https://github.com/jiangyifeng96/pillow"
+    },
+    {
+      "name": "hunt",
+      "description": "Use when debugging an error, failing test, crash, or unexpected behavior. Finds and validates the root cause before any code change is applied. Not for feature design or code review.",
+      "version": "0.1.0",
+      "category": "development",
+      "source": "./skills/hunt",
+      "homepage": "https://github.com/jiangyifeng96/pillow"
+    },
+    {
+      "name": "check",
+      "description": "Use after implementation or before merging. Reviews the diff for drift, risky changes, and missing verification, then summarizes what is safe and what still needs attention. Not for ideation or debugging.",
+      "version": "0.1.0",
+      "category": "development",
+      "source": "./skills/check",
+      "homepage": "https://github.com/jiangyifeng96/pillow"
+    }
+  ]
+}
+
