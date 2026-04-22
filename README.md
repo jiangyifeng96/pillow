@@ -4,7 +4,7 @@
 
 Pillow is my personal skill repository for coding agents.
 
-It captures the working patterns I actually reuse: think before building, design with a clear visual direction, debug from the root cause, and review before shipping. The repo stays intentionally small so I can keep extending it over time without making it heavy.
+It is currently centered on one core skill: `think`. I use it to turn rough requests into a clear implementation direction before code is written. The repo stays intentionally small so I can keep extending it over time without making it heavy.
 
 ## Working Style
 
@@ -18,16 +18,10 @@ It captures the working patterns I actually reuse: think before building, design
 | Skill | When | What it does |
 |---|---|---|
 | `think` | Before a new feature, structural refactor, or architecture decision | Turns a rough request into a concise implementation direction before code is written |
-| `design` | When building UI, pages, or visual components | Sets a clear visual direction and implementation guardrails, not generic UI |
-| `hunt` | When debugging errors, failing tests, or unexpected behavior | Forces a root-cause-first workflow before changing code |
-| `check` | After implementation or before merging | Reviews the diff, checks scope drift, and verifies the work with evidence |
 
 ## Usage
 
 - `think`: use before new features, structural refactors, or architecture decisions.
-- `design`: use when building pages, components, flows, or visual polish.
-- `hunt`: use when debugging errors, regressions, flaky behavior, or anything suspicious.
-- `check`: use after implementation or before merging to verify scope and quality.
 
 ## Structure
 
@@ -43,12 +37,6 @@ It captures the working patterns I actually reuse: think before building, design
 │   └── verify-skills.sh
 ├── skills/
 │   ├── RESOLVER.md
-│   ├── check/
-│   │   └── SKILL.md
-│   ├── design/
-│   │   └── SKILL.md
-│   ├── hunt/
-│   │   └── SKILL.md
 │   └── think/
 │       └── SKILL.md
 ├── .gitignore
