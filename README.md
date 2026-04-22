@@ -2,21 +2,18 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-Pillow is a lightweight skill collection for coding agents.
+Pillow is my personal skill repository for coding agents.
 
-It takes the part of Waza that is actually useful in daily work: a small set of focused skills, a readable resolver, and simple repository checks. It does not try to become a full workflow operating system.
+It captures the working patterns I actually reuse: think before building, design with a clear visual direction, debug from the root cause, and review before shipping. The repo stays intentionally small so I can keep extending it over time without making it heavy.
 
-## Why
+## Working Style
 
-Heavy skill packs are powerful, but they also create friction:
+- prefer explicit triggers over broad auto-activation
+- keep each skill narrow and composable
+- turn recurring habits into reusable instructions
+- add new skills only when a pattern proves useful more than once
 
-- too many automatic triggers
-- too much process for small tasks
-- hard to understand what fires and why
-
-Pillow keeps the surface area small. Each skill does one job, has a narrow trigger, and stays easy to extend.
-
-## Current Skills
+## Skills
 
 | Skill | When | What it does |
 |---|---|---|
@@ -24,6 +21,13 @@ Pillow keeps the surface area small. Each skill does one job, has a narrow trigg
 | `design` | When building UI, pages, or visual components | Sets a clear visual direction and implementation guardrails, not generic UI |
 | `hunt` | When debugging errors, failing tests, or unexpected behavior | Forces a root-cause-first workflow before changing code |
 | `check` | After implementation or before merging | Reviews the diff, checks scope drift, and verifies the work with evidence |
+
+## Usage
+
+- `think`: use before new features, structural refactors, or architecture decisions.
+- `design`: use when building pages, components, flows, or visual polish.
+- `hunt`: use when debugging errors, regressions, flaky behavior, or anything suspicious.
+- `check`: use after implementation or before merging to verify scope and quality.
 
 ## Structure
 
@@ -81,16 +85,6 @@ cd ~/.codex/pillow
 ./scripts/uninstall-codex.sh
 ```
 
-### Claude Code
-
-If you want to reuse the same repository layout in Claude Code, point your local skills or plugin workflow at this repo's `skills/` directory.
-
-## Usage Notes
-
-- Pillow intentionally uses plain names like `think`, `design`, `hunt`, `check`.
-- If you also install Waza or another pack with the same skill names, trigger ambiguity may happen.
-- If you want a single active pack, use Pillow alone.
-
 ## Add a New Skill
 
 1. Create `skills/<name>/SKILL.md`.
@@ -99,12 +93,11 @@ If you want to reuse the same repository layout in Claude Code, point your local
 4. Run `make test`.
 5. Adjust `README.md` if the public skill list changed.
 
-## Design Rules For This Repo
+## Repo Rules
 
 - Keep each skill narrow.
 - Put shared routing rules in `skills/RESOLVER.md`.
 - Prefer simple deterministic validation in `scripts/verify-skills.sh`.
-- Do not create a giant meta-skill that forces every workflow.
 - Add references or scripts only when repetition or determinism justifies them.
 
 ## Development
