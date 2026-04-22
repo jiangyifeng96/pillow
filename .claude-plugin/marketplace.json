@@ -8,8 +8,8 @@
   "plugins": [
     {
       "name": "think",
-      "description": "Use before building a new feature, making a structural refactor, or choosing between implementation approaches. Produces a concise implementation direction and waits for approval before code. Not for bug fixes or trivial edits.",
-      "version": "0.1.0",
+      "description": "Use before building a new feature, making a structural refactor, or choosing between implementation approaches. Produces an approved direction, writes a spec file, and waits for approval before code. Not for trivial edits or mechanical fixes.",
+      "version": "0.2.1",
       "category": "development",
       "source": "./skills/think",
       "homepage": "https://github.com/jiangyifeng96/pillow"

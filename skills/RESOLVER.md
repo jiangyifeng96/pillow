@@ -12,5 +12,5 @@ Model-side matching still comes from each `SKILL.md` description. Keep this file
 
 ## Notes
 
-1. `think` is the only active skill in this repo right now.
+1. `think` is the only active skill in this repo right now, and it writes approved directions into the current project's spec path before implementation.
 2. Keep this file aligned with the current skill inventory.

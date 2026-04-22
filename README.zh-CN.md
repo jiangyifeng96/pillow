@@ -4,7 +4,7 @@
 
 Pillow 是我的个人 skill 仓库，主要给编码代理使用。
 
-这个仓库当前只保留了一个核心 skill：`think`。我主要用它在真正开始写代码之前，把模糊需求先收敛成清晰的实现方向。整个仓库会刻意保持轻量，方便我后续持续添加和扩展。
+这个仓库当前只保留了一个核心 skill：`think`。我主要用它在真正开始写代码之前，把模糊需求先收敛成经过确认的实现方向，并把这个方向记录到我当前真正工作的项目里。整个仓库会刻意保持轻量，方便我后续持续添加和扩展。
 
 ## 我的使用习惯
 
@@ -17,11 +17,20 @@ Pillow 是我的个人 skill 仓库，主要给编码代理使用。
 
 | Skill | 适用场景 | 作用 |
 |---|---|---|
-| `think` | 新功能、结构性重构、架构决策之前 | 在写代码前把模糊需求收敛成清晰实现方向 |
+| `think` | 新功能、结构性重构、架构决策之前 | 在写代码前把模糊需求收敛成经过确认的实现方向，并在当前项目里记录成 spec |
 
 ## 使用说明
 
-- `think`：适合在做新功能、重构方案或技术设计前使用。
+- `think`：适合在做新功能、重构方案或技术设计前使用。方向确认后，会把结果写入当前项目。
+
+## Spec 说明
+
+- 运行时产生的 spec 属于当前工作项目，不属于这个仓库
+- 文件名使用 `YYYY-MM-DD-<topic>.md`
+- 默认写入顺序是：用户指定路径，其次是项目已有的 `docs/specs/`，否则写到 `.agents/specs/`
+- `skills/think/templates/spec-template.md` 保存默认模板
+- `skills/think/examples/think-skill-v0.2.md` 保存维护这个 skill 时使用的本地示例
+- 默认不 commit，只有我明确要求时才提交
 
 ## 仓库结构
 
@@ -38,6 +47,10 @@ Pillow 是我的个人 skill 仓库，主要给编码代理使用。
 ├── skills/
 │   ├── RESOLVER.md
 │   └── think/
+│       ├── examples/
+│       │   └── think-skill-v0.2.md
+│       ├── templates/
+│       │   └── spec-template.md
 │       └── SKILL.md
 ├── .gitignore
 ├── LICENSE
@@ -85,6 +98,7 @@ cd ~/.codex/pillow
 
 - 每个 skill 都要保持边界清晰
 - 共享路由规则统一放在 `skills/RESOLVER.md`
+- `think` 的模板和本地示例统一放在 `skills/think/` 下维护
 - 能用确定性校验解决的问题，优先放进 `scripts/verify-skills.sh`
 - 只有在重复劳动或确定性要求足够高时，才增加 `references/` 或 `scripts/`
 

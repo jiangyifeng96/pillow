@@ -4,7 +4,7 @@
 
 Pillow is my personal skill repository for coding agents.
 
-It is currently centered on one core skill: `think`. I use it to turn rough requests into a clear implementation direction before code is written. The repo stays intentionally small so I can keep extending it over time without making it heavy.
+It is currently centered on one core skill: `think`. I use it to turn rough requests into an approved implementation direction before code is written, and to record that direction as a spec in the project I am actually working on. The repo stays intentionally small so I can keep extending it over time without making it heavy.
 
 ## Working Style
 
@@ -17,11 +17,20 @@ It is currently centered on one core skill: `think`. I use it to turn rough requ
 
 | Skill | When | What it does |
 |---|---|---|
-| `think` | Before a new feature, structural refactor, or architecture decision | Turns a rough request into a concise implementation direction before code is written |
+| `think` | Before a new feature, structural refactor, or architecture decision | Turns a rough request into an approved implementation direction and records it as a spec in the current project before code is written |
 
 ## Usage
 
-- `think`: use before new features, structural refactors, or architecture decisions.
+- `think`: use before new features, structural refactors, or architecture decisions. After approval, it writes a spec into the current project.
+
+## Specs
+
+- Runtime specs belong to the current working project, not this repository.
+- File names use `YYYY-MM-DD-<topic>.md`.
+- The default write order is: user-specified path, then `docs/specs/` if the project already has `docs/`, otherwise `.agents/specs/`.
+- `skills/think/templates/spec-template.md` stores the default template.
+- `skills/think/examples/think-skill-v0.2.md` stores a local example for maintaining the skill itself.
+- Specs are not committed by default. Commit only when I explicitly ask.
 
 ## Structure
 
@@ -38,6 +47,10 @@ It is currently centered on one core skill: `think`. I use it to turn rough requ
 ├── skills/
 │   ├── RESOLVER.md
 │   └── think/
+│       ├── examples/
+│       │   └── think-skill-v0.2.md
+│       ├── templates/
+│       │   └── spec-template.md
 │       └── SKILL.md
 ├── .gitignore
 ├── LICENSE
@@ -85,6 +98,7 @@ cd ~/.codex/pillow
 
 - Keep each skill narrow.
 - Put shared routing rules in `skills/RESOLVER.md`.
+- Keep maintenance templates and examples inside `skills/think/`.
 - Prefer simple deterministic validation in `scripts/verify-skills.sh`.
 - Add references or scripts only when repetition or determinism justifies them.
 
