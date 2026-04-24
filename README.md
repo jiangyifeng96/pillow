@@ -2,7 +2,7 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-Pillow is my personal repository for coding-agent skills. I use it to keep the workflows I actually rely on, without packaging them as a marketplace-style project.
+Pillow is my personal repository for coding-agent skills. I use it to keep the workflows I actually rely on and revise them as my day-to-day habits change.
 
 ## Current Skill
 
@@ -61,11 +61,7 @@ cd ~/.codex/pillow
 - Edit `skills/<name>/SKILL.md` directly when a workflow changes.
 - Add a new skill by creating `skills/<name>/SKILL.md`.
 - Update the README only when I want the repository description to stay in sync with current habits.
-
-## Notes
-
-- This repo intentionally has no marketplace metadata, resolver table, or automated verification.
-- It is optimized for personal use, not for distribution guarantees.
+- Keep the repository small and focused on the skills I actively use.
 
 ## License
 

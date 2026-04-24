@@ -2,7 +2,7 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-Pillow 是我的个人编码代理 skill 仓库，用来记录我自己真实会用到的工作流，不再把它维护成带 marketplace 和校验配套的分发项目。
+Pillow 是我的个人编码代理 skill 仓库，用来记录我自己真实会用到的工作流，并随着日常使用习惯变化持续调整。
 
 ## 当前 Skill
 
@@ -61,11 +61,7 @@ cd ~/.codex/pillow
 - 当某个工作流变了，直接改 `skills/<name>/SKILL.md`
 - 要新增 skill，就直接创建 `skills/<name>/SKILL.md`
 - README 只在我希望它和当前习惯保持同步时再更新
-
-## 说明
-
-- 这个仓库故意不再保留 marketplace 元数据、resolver 表和自动校验脚本。
-- 它现在是一个偏个人使用的仓库，不追求通用分发保证。
+- 仓库保持轻量，只保留我自己会持续使用的 skill
 
 ## 许可证
 
