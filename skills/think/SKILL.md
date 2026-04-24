@@ -5,11 +5,11 @@ description: "Use only when a request is not ready for implementation and needs 
 
 # Think
 
-Turn an unclear or multi-option request into a compact approved design.
+Turn an unclear or multi-option request into a compact Design Summary.
 
 This skill is **not** a default pre-step for all work. Use it only when the request still needs shaping before implementation.
 
-Do not implement, modify files, or start planning artifacts before the user approves the Design Summary.
+This skill only produces the Design Summary. Do not implement, modify files, or create planning artifacts while using this skill.
 
 ## Trigger only when
 
