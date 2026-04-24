@@ -2,64 +2,38 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-Pillow 是我的个人 skill 仓库，主要给编码代理使用。
+Pillow 是我的个人编码代理 skill 仓库，用来记录我自己真实会用到的工作流，不再把它维护成带 marketplace 和校验配套的分发项目。
 
-这个仓库当前只保留了一个核心 skill：`think`。我主要用它在真正开始写代码之前，把模糊需求先收敛成经过确认的实现方向，并把这个方向记录到我当前真正工作的项目里。整个仓库会刻意保持轻量，方便我后续持续添加和扩展。
+## 当前 Skill
+
+| Skill | 适用场景 | 作用 |
+|---|---|---|
+| `think` | 当一个请求还不适合直接开始实现时 | 用来澄清范围、比较方案，并在真正写代码前收敛成一份紧凑的 Design Summary |
 
 ## 我的使用习惯
 
 - 尽量用明确触发，而不是大范围自动激活
-- 每个 skill 都只做一类事情，方便组合使用
-- 把真正重复出现的工作习惯沉淀成可复用说明
-- 只有当某种方法反复证明有价值时，才继续新增 skill
-
-## 当前 Skills
-
-| Skill | 适用场景 | 作用 |
-|---|---|---|
-| `think` | 新功能、结构性重构、架构决策之前 | 在写代码前把模糊需求收敛成经过确认的实现方向，并在当前项目里记录成 spec |
-
-## 使用说明
-
-- `think`：适合在做新功能、重构方案或技术设计前使用。方向确认后，会把结果写入当前项目。
-
-## Spec 说明
-
-- 运行时产生的 spec 属于当前工作项目，不属于这个仓库
-- 文件名使用 `YYYY-MM-DD-<topic>.md`
-- 默认写入顺序是：用户指定路径，其次是项目已有的 `docs/specs/`，否则写到 `.agents/specs/`
-- `skills/think/templates/spec-template.md` 保存默认模板
-- `skills/think/examples/think-skill-v0.2.md` 保存维护这个 skill 时使用的本地示例
-- 默认不 commit，只有我明确要求时才提交
+- 每个 skill 都保持边界清晰，方便后续直接改
+- 只记录在真实工作里证明有价值的习惯
+- 仓库保持轻量，优先服务我自己的使用方式
 
 ## 仓库结构
 
 ```text
 .
-├── .claude-plugin/marketplace.json
-├── .github/workflows/test.yml
-├── rules/
-│   └── chinese.md
+├── README.md
+├── README.zh-CN.md
 ├── scripts/
 │   ├── install-codex.sh
-│   ├── uninstall-codex.sh
-│   └── verify-skills.sh
+│   └── uninstall-codex.sh
 ├── skills/
-│   ├── RESOLVER.md
 │   └── think/
-│       ├── examples/
-│       │   └── think-skill-v0.2.md
-│       ├── templates/
-│       │   └── spec-template.md
 │       └── SKILL.md
 ├── .gitignore
-├── LICENSE
-└── Makefile
+└── LICENSE
 ```
 
 ## 安装
-
-### Codex
 
 ```bash
 git clone https://github.com/jiangyifeng96/pillow.git ~/.codex/pillow
@@ -67,54 +41,31 @@ cd ~/.codex/pillow
 ./scripts/install-codex.sh
 ```
 
-安装完成后，重启 Codex。
-
-安装脚本只会创建这一条链接：
+安装脚本会创建这条软链接：
 
 ```text
 ~/.agents/skills/pillow -> <repo>/skills
 ```
 
-如果目标链接已经存在且指向别处，脚本会拒绝覆盖。
+如果这个路径已经存在且指向别处，脚本会拒绝覆盖。
 
 ## 卸载
-
-### Codex
 
 ```bash
 cd ~/.codex/pillow
 ./scripts/uninstall-codex.sh
 ```
 
-## 添加一个新 Skill
+## 维护方式
 
-1. 创建 `skills/<name>/SKILL.md`
-2. 在 `skills/RESOLVER.md` 里增加触发映射
-3. 在 `.claude-plugin/marketplace.json` 里增加 skill 条目
-4. 运行 `make test`
-5. 如果公开 skill 列表发生变化，同步更新 `README.md` 和 `README.zh-CN.md`
+- 当某个工作流变了，直接改 `skills/<name>/SKILL.md`
+- 要新增 skill，就直接创建 `skills/<name>/SKILL.md`
+- README 只在我希望它和当前习惯保持同步时再更新
 
-## 这个仓库的设计原则
+## 说明
 
-- 每个 skill 都要保持边界清晰
-- 共享路由规则统一放在 `skills/RESOLVER.md`
-- `think` 的模板和本地示例统一放在 `skills/think/` 下维护
-- 能用确定性校验解决的问题，优先放进 `scripts/verify-skills.sh`
-- 只有在重复劳动或确定性要求足够高时，才增加 `references/` 或 `scripts/`
-
-## 开发
-
-```bash
-make test
-```
-
-当前检查项包括：
-
-- frontmatter 合法性
-- marketplace 与 skill 目录一致性
-- resolver 覆盖情况
-- shell 脚本语法检查
-- Codex 安装/卸载 smoke test
+- 这个仓库故意不再保留 marketplace 元数据、resolver 表和自动校验脚本。
+- 它现在是一个偏个人使用的仓库，不追求通用分发保证。
 
 ## 许可证
 

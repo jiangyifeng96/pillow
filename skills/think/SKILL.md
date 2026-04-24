@@ -1,127 +1,90 @@
 ---
 name: think
-description: "Use before building a new feature, making a structural refactor, or choosing between implementation approaches. Produces an approved direction, writes a spec file, and waits for approval before code. Not for trivial edits or mechanical fixes."
-metadata:
-  version: "0.2.1"
+description: "Use only when a request is not ready for implementation and needs design clarification, scope shaping, or approach comparison."
 ---
 
 # Think
 
-Turn a rough request into an approved direction before implementation starts.
+Turn an unclear or multi-option request into a compact approved design.
 
-Do not write code inside this skill. The job here is to inspect context, narrow scope, pressure-test options, write a concrete spec, and stop before implementation.
+This skill is **not** a default pre-step for all work. Use it only when the request still needs shaping before implementation.
 
-## Hard Gate
+Do not implement, modify files, or start planning artifacts before the user approves the Design Summary.
 
-- Do not write code, run migrations, scaffold files, or take implementation actions before the user approves the direction.
-- Writing a spec is part of this skill.
-- Do not commit the spec unless the user explicitly asks.
+## Trigger only when
 
-## When To Use
+Use this skill only when at least one of these is true:
+- the request is underspecified
+- the scope or boundaries are unclear
+- there are meaningful design tradeoffs
+- the work likely spans multiple components or subsystems
+- the user explicitly asks to brainstorm, shape, or compare approaches
 
-- new feature
-- structural refactor
-- architecture decision
-- implementation approach with real tradeoffs
+## Do not use when
 
-If the task is already obvious and fully mechanical, skip this skill.
+Do not use this skill when:
+- the task is small and already clear
+- there is an obvious low-risk implementation path
+- the user only wants explanation, summary, translation, or wording help
+- the design is already settled and the next step is straightforward execution
 
 ## Workflow
 
-1. Confirm the working path or repo root first.
-2. Inspect relevant files, docs, and current patterns before proposing changes.
-3. Check scope early. If the request spans multiple independent areas, decompose it and focus on the first slice.
-4. Ask clarifying questions one at a time when needed. Prefer short multiple-choice questions when possible.
-5. Offer 2-3 approaches. Always include one minimal option.
-6. Recommend one approach clearly. Explain why it fits the current repo better than the others.
-7. Present the design at the right level of detail. Cover:
-   - architecture or module shape
-   - data flow or control flow
-   - failure handling
-   - verification
-   - what will not be built
-8. Wait for approval.
-9. After approval, choose the spec path in this order:
-   - a user-specified path
-   - `docs/specs/YYYY-MM-DD-<topic>.md` if the current project already has a `docs/` directory
-   - `.agents/specs/YYYY-MM-DD-<topic>.md` otherwise
-10. Write the spec and ask the user to review it before implementation starts.
+1. **Explore project context**
+   - Briefly inspect the most relevant files, docs, and local patterns.
+   - Keep recon targeted and minimal.
 
-## Spec Requirements
+2. **Check scope**
+   - If the request spans multiple independent problems, say so early.
+   - Decompose it into smaller parts.
+   - Think through only the first subproblem.
 
-- Be direct. Do not present fake neutrality if one option is clearly better.
-- Prefer the smallest approach that still solves the actual problem.
-- Follow existing repo patterns unless there is a concrete reason not to.
-- If an official or built-in solution exists, consider it before inventing a custom one.
-- Do not add unrelated refactors.
-- No placeholders such as `TBD`, `TODO`, or "decide later".
-- If the direction is rejected, ask what failed and revise from there. Do not restart blindly.
+3. **Clarify**
+   - Ask at most **1-3 rounds** of questions.
+   - Each round should focus on **one clarification theme**.
+   - In a round, ask **1-3 tightly related questions** in one message.
+   - Prioritize:
+     - goal
+     - constraints
+     - success criteria
+   - Skip questions that would not materially change the design.
+   - If ambiguity remains after 3 rounds, make reasonable assumptions and state them explicitly.
 
-## Lightweight Mode
+4. **Compare approaches**
+   - When real tradeoffs exist, present **2-3 plausible approaches**.
+   - For each approach, briefly compare:
+     - fit for the goal
+     - implementation complexity
+     - management and maintenance cost
+     - main tradeoff
+     - notable risk
+   - Recommend one approach.
 
-Use a shorter flow when the request is narrow and the main question is only which fix or approach to take.
+5. **Visual topics**
+   - If visual explanation would help, use a small ASCII sketch.
 
-1. Inspect the relevant context.
-2. Ask at most one clarifying question if needed.
-3. Give 2-3 options and recommend one.
-4. Summarize scope, main risk, affected files, and verification.
-5. Wait for approval, then write a short spec and stop.
+6. **Design Summary**
+   - Provide one compact summary sized to the task.
+   - Usually include:
+     - goal
+     - non-goals
+     - chosen approach
+     - key components or files likely to change
+     - behavior flow or data flow
+     - edge cases
+     - assumptions
+   - Stop after presenting the Design Summary and wait for user feedback or approval.
 
-## Self-Check Before Writing The Spec
+## Style
 
-- Is the scope small enough for one implementation pass?
-- Are likely files or modules named?
-- Is the riskiest assumption explicit?
-- Are happy path, failure path, and edge verification listed?
-- If the work touches many files or multiple modules, did you say so directly?
-- Is the spec concrete enough that implementation can start without another planning round?
+- Keep the process lightweight and conversational.
+- Prefer one compact design message over section-by-section approval loops.
+- Default to conversation, not specs.
+- Do not mention browser-based visual tooling.
+- Do not add review loops, commit steps, or planning handoffs inside this skill.
+- Follow existing project patterns.
+- Avoid unrelated refactors.
 
-## Spec Structure
+## End condition
 
-Use this structure unless the task is tiny:
-
-```text
-# <Title>
-
-## Goal
-## Context
-## Scope
-### In
-### Out
-## Options Considered
-## Recommendation
-## Design
-## Risks
-## Verification
-## Next Step
-```
-
-Use `skills/think/templates/spec-template.md` as the default template and `skills/think/examples/think-skill-v0.2.md` as a reference example when needed.
-
-## Output
-
-Use this structure:
-
-```text
-Goal:
-
-Context:
-
-Options:
-1. ...
-2. ...
-
-Recommendation:
-
-Design:
-
-Risk:
-
-Verification:
-
-Spec:
-- path: <chosen-project-spec-path>
-- status: pending approval | written
-```
-
-After the spec is written, stop. Implementation starts only when the user asks.
+This skill ends after the Design Summary is presented.
